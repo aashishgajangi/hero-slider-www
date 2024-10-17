@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Image Slider</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0; /* Remove default body margin */
+}
+.slider-container {
+  width: 100%;
+  height: 100vh; /* 100% of viewport height */
+  position: relative;
+  overflow: hidden; /* Hide images outside the container */
+}
+.slide {
+  position: absolute;
+  width: 100%;
+  /* height: 100%; */
+  opacity: 0; /* Initially hide all slides */
+  transition: opacity 0.5s ease-in-out; /* Smooth transition */
+}
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Maintain aspect ratio and cover the area */
+}
+.slide.active {
+  opacity: 1; /* Show the active slide */
+}
+</style>
+</head>
+<body>
+
+<div class="slider-container">
+  <div class="slide active">
+    <img src="banner1.webp" alt="Image 1">
+  </div>
+  <div class="slide">
+    <img src="banner2.webp" alt="Image 2">
+  </div>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+let currentSlide = 0;
+
+function showSlide() {
+  slides.forEach(slide => slide.classList.remove('active'));
+  slides[currentSlide].classList.add('active');
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide();
+}
+
+// Automatically change slides every 3 seconds (3000 milliseconds)
+setInterval(nextSlide, 3000);
+
+showSlide(); // Show the initial slide
+</script>
+
+</body>
+</html>
