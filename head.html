@@ -3,32 +3,30 @@
 <head>
 <title>Simple Image Slider</title>
 <style>
-* {
-  box-sizing: border-box;
-}
 body {
-  margin: 0; /* Remove default body margin */
+  margin: 0; 
 }
 .slider-container {
   width: 100%;
-  height: 100vh; /* 100% of viewport height */
-  position: relative;
-  overflow: hidden; /* Hide images outside the container */
+  height: 500px; /* Set a fixed height */
+  overflow: hidden;
 }
 .slide {
   position: absolute;
   width: 100%;
-  /* height: 100%; */
-  opacity: 0; /* Initially hide all slides */
-  transition: opacity 0.5s ease-in-out; /* Smooth transition */
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; 
 }
 .slide img {
   width: 100%;
-  height: 100%;
-  object-fit: contain; /* Maintain aspect ratio and cover the area */
+  object-fit: contain; 
 }
 .slide.active {
-  opacity: 1; /* Show the active slide */
+  opacity: 1; 
+}
+h2 {  /* Add this to clear any floats */
+  clear: both;
 }
 </style>
 </head>
@@ -42,7 +40,7 @@ body {
     <img src="banner2.webp" alt="Image 2">
   </div>
 </div>
-
+<h2>DD</h2>
 <script>
 const slides = document.querySelectorAll('.slide');
 let currentSlide = 0;
@@ -57,10 +55,8 @@ function nextSlide() {
   showSlide();
 }
 
-// Automatically change slides every 3 seconds (3000 milliseconds)
 setInterval(nextSlide, 3000);
-
-showSlide(); // Show the initial slide
+showSlide(); 
 </script>
 
 </body>
